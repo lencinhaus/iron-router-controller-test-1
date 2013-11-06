@@ -6,12 +6,7 @@ if (Meteor.isClient) {
   BaseRouteController = RouteController.extend({
     before: function () {
       console.log('base.before');
-    },
-
-    data: function () {
-      console.log('base.data');
-      return {};
-    },
+    },  
 
     after: function () {
       console.log('base.after');
@@ -25,10 +20,12 @@ if (Meteor.isClient) {
     }
   });
 
+  SubSubRouteController = SubRouteController.extend({});
+
   Router.map(function () {
     this.route('route', {
       path: '/',
-      controller: SubRouteController
+      controller: SubSubRouteController
     });
   });
 }
